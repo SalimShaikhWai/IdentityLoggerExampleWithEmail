@@ -1,0 +1,29 @@
+﻿@using Demo63Assignment.Models.ViewModel
+@model DepartmentViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="container">
+    <div class="row">
+        <form method="post">
+            <div class="form-group">
+                <label class="form-label">Department Name</label>
+                <input type="text" asp-for="Name" class="form-control" />
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Desciption</label>
+                <input type="text" asp-for="Description" class="form-control" /><br />
+                <span asp-validation-for="Description"></span>
+            </div>
+
+            <div class="form-group">
+                <button class="btn-primary btn" type="submit">Submit</button>
+                <button class="btn-primary btn" type="reset">reset</button>
+            </div>
+        </form>
+    </div>
+</div>

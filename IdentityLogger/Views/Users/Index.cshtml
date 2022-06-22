@@ -1,0 +1,70 @@
+﻿@using Demo63Assignment.Models.DataModel
+@using Demo63Assignment.Models.UtilityClass
+@using Demo63Assignment.Models.ViewModel
+
+@model PaginatedList<Employee,UserViewModel>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="container bg-primary">
+    <div class="row">
+        <h5><a class="btn btn-success" asp-controller="Users" asp-action="Create">Create User</a></h5>
+        <h3 class="text-center">List Of Employee</h3>
+        <table class="table table-bordered table-striped">
+
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th class=text-center colspan="2">Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+
+                        <td>@user.Id</td>
+                        <td>@user.FirstName</td>
+                        <td>@user.LastName</td>
+                        <td>@user.Address</td>
+                        <td>@user.Email</td>
+                        <td>@user.DepartmentName</td>
+                        @*<td>@user.DepartmentName</td>*@
+                        <td class="text-center"><a class="btn btn-primary" asp-action="Update" asp-route-id="@user.Id" />Edit</td>
+                        <td class="text-center"><a class="btn btn-danger" asp-action="Delete" asp-route-id="@user.Id" />Delete</td>
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+
+        @{
+            var preDisabled = !Model.PreviousPage ? "disabled" : "";
+            var nextDisabled = !Model.NextPage ? "disabled" : "";
+
+        }
+
+        <nav aria-label="Page navigation example ">
+            <ul class="pagination justify-content-center">
+                <li class="page-item @preDisabled"><a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.PageIndex-1)">Previous</a></li>
+
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <li class="page-item"><a class="page-link" asp-action="Index" asp-route-pageNumber="@i">@i</a></li>
+                }
+                <li class="page-item @nextDisabled"><a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.PageIndex+1)">Next</a></li>
+
+
+            </ul>
+        </nav>
+    </div>
+</div>

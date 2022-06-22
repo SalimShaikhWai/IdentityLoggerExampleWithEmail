@@ -1,0 +1,64 @@
+﻿@using Demo63Assignment.Models.ViewModel
+
+@model UserViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="container">
+    <div class="row  align-items-center justify-content-center">
+        <h3 class="text-center">Edit Employee</h3>
+        <form asp-action="UpdateUser">
+            <input type="hidden" asp-for="Id" />
+            <div class="from-control">
+                <label class="form-label">First Name</label>
+                <input class=form-control type="text" asp-for="FirstName" />
+            </div>
+            <div class="from-control">
+                <label class="form-label">Last Name</label>
+                <input class=form-control type="text" asp-for="LastName" />
+            </div>
+            <div class="from-control">
+                <label class="form-label">Address</label>
+                <input class=form-control type="text" asp-for="Address" />
+            </div>
+            <div class="from-control">
+                <label class="form-label">Email </label>
+                <input class=form-control type="text" asp-for="Email" />
+            </div>
+            <div class="from-control">
+                <label class="form-label">Gender </label>
+                <input type="Radio" value="M" name="gender" asp-for="Gender" />Male
+                <input type="Radio" value="F" name="gender" asp-for="Gender" />Female
+            </div>
+            <div class="from-control">
+                <label class="form-label">Date OF Birth </label>
+                <input type="Date" asp-for="DateOfBirth" />
+            </div>
+            <div class="from-control">
+                <label class="form-label">Mobile Number </label>
+                <input class=form-control type="text" asp-for="MobileNumber" />
+            </div>
+            <div class="from-control">
+                <label class="form-label">Pan</label>
+                <input class=form-control type="text" asp-for="Pan" />
+            </div>
+            <div class="from-control">
+                <label class="form-label">Comments</label>
+                <input class=form-control type="text" asp-for="Comment" />
+            </div>
+
+            <div class="from-control">
+                <label class="form-label">Department</label>
+                <select asp-for="DepartmentRefId" asp-items="ViewBag.Departments"></select>
+            </div>
+            <div class="from-control">
+
+                <input type="submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

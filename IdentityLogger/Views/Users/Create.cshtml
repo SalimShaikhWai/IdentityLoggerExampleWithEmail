@@ -1,0 +1,84 @@
+﻿@using Demo63Assignment.Models.ViewModel
+@model UserViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="container bg-primary ">
+    <div class="row w-75 mx-auto text-white  mt-2">
+        <h3 class="text-center">Create Employee</h3>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="from-control">
+                <label class="form-label">First Name</label>
+                <input class=form-control type="text" asp-for="FirstName" /><br />
+                <span class="form-label text-danger" asp-validation-for="FirstName"></span>
+            </div>
+            <div class="from-control">
+                <label class="form-label">Last Name</label>
+                <input class=form-control type="text" asp-for="LastName" /><br />
+                <span class="form-label text-danger" asp-validation-for="LastName"></span>
+
+            </div>
+            <div class="from-control">
+                <label class="form-label">Address</label>
+                <input class=form-control type="text" asp-for="Address" /><br />
+                <span class="form-label text-danger" asp-validation-for="Address"></span>
+
+            </div>
+            <div class="from-control">
+                <label class="form-label">Email </label>
+                <input class=form-control type="text" asp-for="Email" /><br />
+                <span class="form-label text-danger" asp-validation-for="Email"></span>
+
+            </div>
+            <div class="from-control">
+                <label class="form-label">Gender </label>
+                <input type="Radio" value="M" name="gender" asp-for="Gender" />Male
+                <input type="Radio" value="F" name="gender" asp-for="Gender" />Female<br />
+                <span class="form-label text-danger" asp-validation-for="Gender"></span>
+
+            </div>
+            <br />
+            <div class="from-control">
+                <label class="form-label">Date OF Birth </label>
+                <input type="Date" asp-for="DateOfBirth" /><br />
+                <span class="form-label text-danger" asp-validation-for="DateOfBirth"></span>
+
+            </div>
+            <div class="from-control">
+                <label class="form-label">Mobile Number </label>
+                <input class=form-control type="text" asp-for="MobileNumber" /><br />
+                <span class="form-label text-danger" asp-validation-for="MobileNumber"></span>
+
+            </div>
+            <div class="from-control">
+                <label class="form-label">Pan</label>
+                <input class=form-control type="text" asp-for="Pan" /><br />
+                <span class="form-label text-danger" asp-validation-for="Pan"></span>
+            </div>
+            <div class="from-control">
+                <label class="form-label">Comments</label>
+                <input class=form-control type="text" asp-for="Comment" /><br />
+                <span class="form-label text-danger" asp-validation-for="Comment"></span>
+
+            </div>
+            <div class="from-control">
+                <label class="form-label">Department</label>
+                <select asp-for="DepartmentRefId" asp-items="ViewBag.Departments">
+                    <option>Select</option>
+
+                </select><br />
+                <span class="form-label text-danger" asp-validation-for="DepartmentRefId"></span>
+
+            </div>
+
+            <div class="from-control m-3">
+                <input type="submit" class="btn btn-warning" />
+            </div>
+
+        </form>
+    </div>
+</div>
